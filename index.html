@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple English Homepage</title>
+  <!-- Google Font for a clean look -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #fafbfc;
+      color: #1e293b;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header / Navigation */
+    header {
+      padding: 20px 0;
+      border-bottom: 1px solid #e9edf2;
+      background: white;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: #0f172a;
+    }
+
+    .logo span {
+      color: #3b82f6;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #334155;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #3b82f6;
+    }
+
+    .btn-outline {
+      border: 1.5px solid #3b82f6;
+      padding: 8px 20px;
+      border-radius: 40px;
+      color: #3b82f6;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+
+    .btn-outline:hover {
+      background: #3b82f6;
+      color: white;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 80px 0 64px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3.2rem;
+      font-weight: 700;
+      letter-spacing: -1px;
+      line-height: 1.2;
+      max-width: 800px;
+      margin: 0 auto 20px;
+    }
+
+    .hero h1 .highlight {
+      background: linear-gradient(145deg, #3b82f6, #8b5cf6);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      color: #475569;
+      max-width: 640px;
+      margin: 0 auto 36px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: #3b82f6;
+      color: white;
+      padding: 14px 36px;
+      border-radius: 40px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s;
+      display: inline-block;
+    }
+
+    .btn-primary:hover {
+      background: #2563eb;
+    }
+
+    .btn-secondary {
+      background: white;
+      color: #1e293b;
+      padding: 14px 36px;
+      border-radius: 40px;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1px solid #d1d9e6;
+      transition: all 0.2s;
+      display: inline-block;
+    }
+
+    .btn-secondary:hover {
+      border-color: #94a3b8;
+      background: #f8fafc;
+    }
+
+    /* Features / Cards */
+    .features {
+      padding: 64px 0 80px;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 48px;
+      letter-spacing: -0.3px;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 32px;
+    }
+
+    .card {
+      background: white;
+      padding: 32px 24px;
+      border-radius: 24px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+      transition: transform 0.15s, box-shadow 0.2s;
+      border: 1px solid #edf2f7;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.06);
+    }
+
+    .card-icon {
+      font-size: 2.4rem;
+      margin-bottom: 16px;
+      display: inline-block;
+    }
+
+    .card h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #475569;
+      font-size: 0.98rem;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid #e9edf2;
+      background: white;
+      padding: 32px 0;
+      margin-top: 16px;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .footer-links a {
+      text-decoration: none;
+      color: #64748b;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: #0f172a;
+    }
+
+    .copyright {
+      color: #94a3b8;
+      font-size: 0.9rem;
+    }
+
+    /* responsiveness */
+    @media (max-width: 700px) {
+      .hero h1 {
+        font-size: 2.4rem;
+      }
+      .nav {
+        flex-direction: column;
+        gap: 16px;
+      }
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+      }
+      .footer-content {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container nav">
+      <div class="logo">simple<span>.</span></div>
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Features</a></li>
+        <li><a href="#">Pricing</a></li>
+        <li><a href="#" class="btn-outline">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <h1>
+        Build your<br>
+        <span class="highlight">digital presence</span> with ease
+      </h1>
+      <p>
+        Clean, responsive, and modern. A simple homepage to showcase your
+        brand, product, or service — no clutter, just clarity.
+      </p>
+      <div class="hero-buttons">
+        <a href="#" class="btn-primary">Get started</a>
+        <a href="#" class="btn-secondary">Learn more</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="features">
+    <div class="container">
+      <h2 class="section-title">Designed for simplicity</h2>
+      <div class="card-grid">
+        <div class="card">
+          <span class="card-icon">⚡</span>
+          <h3>Lightning fast</h3>
+          <p>Optimized for speed and performance. No unnecessary bloat, just pure HTML and CSS.</p>
+        </div>
+        <div class="card">
+          <span class="card-icon">🎨</span>
+          <h3>Clean aesthetic</h3>
+          <p>Minimal and elegant design that puts your content front and center.</p>
+        </div>
+        <div class="card">
+          <span class="card-icon">📱</span>
+          <h3>Fully responsive</h3>
+          <p>Looks great on every device — from desktop to mobile, without extra work.</p>
+        </div>
+        <div class="card">
+          <span class="card-icon">🔧</span>
+          <h3>Easy to customize</h3>
+          <p>Straightforward code structure, ready for your own colors, fonts, and content.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-content">
+      <div class="copyright">&copy; 2026 simple. All rights reserved.</div>
+      <ul class="footer-links">
+        <li><a href="#">Privacy</a></li>
+        <li><a href="#">Terms</a></li>
+        <li><a href="#">Support</a></li>
+        <li><a href="#">Twitter</a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>
